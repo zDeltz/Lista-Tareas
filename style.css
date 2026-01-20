@@ -30,6 +30,20 @@
     --border-size: 1px;
     --border-container: #3a3b40;
 
+    /* Botones color*/
+
+    --btn-add-color: #f30045;
+    --btn-hide-color: #ff2474;
+    --btn-remove-color: #e50b62 ;
+
+
+     --btn-add-color-hover: #000000;
+    --btn-hide-color-hover: #000000;
+    --btn-remove-color-hover: #000000 ;
+
+    --btn-text-color:var(--bg-body);
+    --btn-text-color-hover: var(--text-primary);
+
 }
 
 body{
@@ -45,12 +59,12 @@ body{
 .contenedor {
     display: flex;
     flex-direction: column;
-
+    gap: var(--space-l);
     width: 100%;
     max-width: 640px;
     height: fit-content;
 
-    padding: var(--space-n);
+    padding: var(--space-l);
 
     border-width: var(--border-size);
     border-style: solid;
@@ -73,7 +87,121 @@ body{
 .tarea-entrada {
     width: 100%;
     font-size: 1.2rem;
-    padding: var(--space-l);
+    padding: var(--space-n);
     border-radius: var(--border-radius);
     border: none;
+}
+
+.contenedor-botones {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-n);
+    width: 100%;
+}
+
+.boton {
+    padding: var(--space-n) var(--space-s);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.boton:hover {
+color: var(--btn-text-color-hover);
+}
+.boton-agregar {
+background-color: var(--btn-add-color);
+}
+
+.boton-ocultar{
+    background-color: var(--btn-hide-color);
+
+}
+
+.boton-eliminar{
+background-color: var(--btn-remove-color);
+}
+
+
+.boton-agregar:hover {
+background-color: var(--btn-add-color-hover);
+}
+
+.boton-ocultar:hover{
+    background-color: var(--btn-hide-color-hover);
+
+}
+
+.boton-eliminar:hover{
+background-color: var(--btn-remove-color-hover);
+}
+
+.contenedor-conteo{
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-n);
+    padding: var(--space-n);
+    background-color: var(--bg-container-counter);
+    border: 1px solid var(--border-container);
+    border-radius: var(--border-radius);
+
+}
+
+.contenedor-conteo p {
+    color: var(--text-counter);
+    font-size: .95rem;
+}
+
+.tareas-totales, .tareas-terminadas{
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.contenedor-tareas{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    width: 100%;
+}
+
+.tarea{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-n);
+    padding: var(--space-s) var(--space-n);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-task);
+}
+
+.tarea-texto{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.tarea-iconos{
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    gap: var(--space-n);
+}
+
+.tarea-completada{
+    background-color: var(--bg-task-complete);
+}
+
+.tarea-iconos i {
+    font-size: 1.4rem;
+    color: var(--icon-color);
+    cursor: pointer;
+}
+
+
+.tarea-iconos i :hover {
+    font-size: 1.4rem;
+    color: var(--icon-color-hover);
+    cursor: pointer;
 }
