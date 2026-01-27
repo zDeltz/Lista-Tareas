@@ -14,10 +14,15 @@
     --bg-body: #131313;
     --bg-container: #26272b;
     --border-container: #3e3b40;
+    --bg-task: #f30045;
+    --bg-task-complete: #ce4f71;
+    --bg-container-counter: #25101d;
+    --icon-color-hover: #ffffff;
 
     /* Colores de textos */
     --text-primary: #f30045;
     --text-secondary: #edefab;
+    --text-counter: #ffb4d3;
 
     /* Espacios */
     --space-l: 1rem;
@@ -37,9 +42,9 @@
     --btn-remove-color: #e50b62 ;
 
 
-     --btn-add-color-hover: #000000;
+    --btn-add-color-hover: #000000;
     --btn-hide-color-hover: #000000;
-    --btn-remove-color-hover: #000000 ;
+    --btn-remove-color-hover: #000000;
 
     --btn-text-color:var(--bg-body);
     --btn-text-color-hover: var(--text-primary);
@@ -93,7 +98,6 @@ body{
 }
 
 .contenedor-botones {
-
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-n);
@@ -110,33 +114,32 @@ body{
 }
 
 .boton:hover {
-color: var(--btn-text-color-hover);
+    color: var(--btn-text-color-hover);
 }
+
 .boton-agregar {
-background-color: var(--btn-add-color);
+    background-color: var(--btn-add-color);
 }
 
 .boton-ocultar{
     background-color: var(--btn-hide-color);
-
 }
 
 .boton-eliminar{
-background-color: var(--btn-remove-color);
+    background-color: var(--btn-remove-color);
 }
 
 
 .boton-agregar:hover {
-background-color: var(--btn-add-color-hover);
+    background-color: var(--btn-add-color-hover);
 }
 
 .boton-ocultar:hover{
     background-color: var(--btn-hide-color-hover);
-
 }
 
 .boton-eliminar:hover{
-background-color: var(--btn-remove-color-hover);
+    background-color: var(--btn-remove-color-hover);
 }
 
 .contenedor-conteo{
@@ -147,7 +150,6 @@ background-color: var(--btn-remove-color-hover);
     background-color: var(--bg-container-counter);
     border: 1px solid var(--border-container);
     border-radius: var(--border-radius);
-
 }
 
 .contenedor-conteo p {
@@ -191,6 +193,7 @@ background-color: var(--btn-remove-color-hover);
 
 .tarea-completada{
     background-color: var(--bg-task-complete);
+    text-decoration: line-through;  
 }
 
 .tarea-iconos i {
@@ -200,7 +203,7 @@ background-color: var(--btn-remove-color-hover);
 }
 
 
-.tarea-iconos i :hover {
+.tarea-iconos i:hover {
     font-size: 1.4rem;
     color: var(--icon-color-hover);
     cursor: pointer;
