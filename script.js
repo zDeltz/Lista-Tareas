@@ -4,6 +4,8 @@ const tareaEntrada = document.getElementById("tareaEntrada");
 const botonAgregar = document.getElementById("botonAgregar");
 const contenedorTareas = document.getElementById("contenedorTareas");
 const mensaje = document.getElementById("mensaje");
+const contadorTotales = document.getElementById("contadorTotales");
+const contadorTerminadas = document.getElementById("contadorTerminadas");
 
 /* Función para crear el elemnto tarea (Función creadora del Nodo Tarea) */
 
@@ -47,16 +49,33 @@ function crearElementoTarea(){
             e.target.classList.remove('bi-check-circle')
         }
 
+        //  Actualizamos los contadores
+        actualizarContadores();
+
     })
 
     iconoEliminar.addEventListener('click', (e) => {
         const tareaElemento = e.target.parentNode.parentNode;
         tareaElemento.remove();
+        //  Actualizamos los contadores
+        actualizarContadores();
     })
 
     /* Retornamos la estructura de la tarea */
     return tareaContenedor;
 
+}
+
+/*  Función Actualizar Contadores  */
+
+function actualizarContadores(){
+    // Contamos los elementos con la clase tarea
+    const tareasTotales = document.querySelectorAll('.tarea');
+    const tareasCompletadas = document.querySelectorAll('.tarea-completada');
+
+    // Actualizamos los contadores en el DOM
+   contadorTotales.textContent = tareasTotales.length;
+   contadorTerminadas.textContent = tareasCompletadas.length;
 }
 
 /* Escuchador */
@@ -81,6 +100,9 @@ botonAgregar.addEventListener("click" , agregarTarea);
              tareaEntrada.value = ' ';
 
              mensaje.textContent = 'Tarea creada correctamente! 😊';
+
+             //  Actualizamos los contadores
+             actualizarContadores();
         }
 
     }
