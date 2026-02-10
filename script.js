@@ -6,8 +6,11 @@ const contenedorTareas = document.getElementById("contenedorTareas");
 const mensaje = document.getElementById("mensaje");
 const contadorTotales = document.getElementById("contadorTotales");
 const contadorTerminadas = document.getElementById("contadorTerminadas");
+const botonOcultar = document.getElementById("botonOcultar");
+const botonEliminar = document.getElementById("botonEliminar");
 
 /* Función para crear el elemnto tarea (Función creadora del Nodo Tarea) */
+
 
 function crearElementoTarea(){
 
@@ -66,7 +69,9 @@ function crearElementoTarea(){
 
 }
 
+
 /*  Función Actualizar Contadores  */
+
 
 function actualizarContadores(){
     // Contamos los elementos con la clase tarea
@@ -78,9 +83,53 @@ function actualizarContadores(){
    contadorTerminadas.textContent = tareasCompletadas.length;
 }
 
-/* Escuchador */
 
+/*  Funcion mostrar y ocultar las tareas completadas */
+
+let tareasOcultas = false;
+
+
+function toggleOcultarCompletadas(){
+
+  const tareasCompletadas = document.querySelectorAll(".tarea-completada");
+
+    tareasCompletadas.forEach ((tarea) => {
+        //codigo que se ejecuta por cada una de las tareas
+         if(tareasOcultas){
+         tarea.style.display = "flex";
+        }
+    
+         else{
+         tarea.style.display = "none";
+        }
+    } );
+
+    tareasOcultas = !tareasOcultas;
+
+    if(tareasOcultas){
+        botonOcultar.textContent = 'Mostrar Completadas';
+    }else {
+        botonOcultar.textContent = 'Ocultar Completadas';
+    }
+}
+
+
+//  Eliminar Tareas Completadas
+function eliminarCompletadas(){
+    const tareasCompletadas = document.querySelectorAll('.tarea-completada');
+
+    // Eliminar cada tarea completada
+    tareasCompletadas.forEach( (tarea) => { tarea.remove() } );
+
+    // Actualizar Contadores
+    actualizarContadores();
+}
+
+
+/* Escuchador de Botones*/
 botonAgregar.addEventListener("click" , agregarTarea);
+botonOcultar.addEventListener("click" , toggleOcultarCompletadas);
+botonEliminar.addEventListener("click", eliminarCompletadas);
 
 /* Función Agregar el Elemento Tarea */
 
